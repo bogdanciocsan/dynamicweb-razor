@@ -1,0 +1,22 @@
+@foreach (LoopItem i in GetLoop("Form.Fields"))
+{
+
+    switch (i.GetString("Field.Type"))
+    {
+        case "Radio":
+        <h5>@i.GetString("Field.Label")</h5>
+        foreach (var radioItem in i.GetLoop("FieldOptions"))
+        {
+        var isChecked = i.GetString("Field.DefaultValue") == radioItem.GetString("Field.Option.Value") ? "checked='checked'" : "";
+        var radioId = i.GetString("Field.Systemname") + radioItem.GetString("FieldOptions.LoopCounter");
+        <div class="radio">
+          <label>
+            <input type="radio" name='@i.GetString("Field.Systemname")' id='@radioId' value='@radioItem.GetString("Field.Option.Text")' @isChecked>
+            @radioItem.GetString("Field.Option.Text")
+          </label>
+        </div>
+        }
+        break;
+    }
+
+}
