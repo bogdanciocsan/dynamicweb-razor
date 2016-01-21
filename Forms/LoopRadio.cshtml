@@ -4,7 +4,7 @@
     switch (i.GetString("Field.Type"))
     {
         case "Radio":
-            <h5>@i.GetString("Field.Label")</h5>
+            <h5>@i.GetString("Field.Name")</h5>
 			foreach (var radioItem in i.GetLoop("Options"))
 			{
 				var isChecked = i.GetBoolean("Option.DefaultSelected") ? "checked='checked'" : "";
