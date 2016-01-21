@@ -8,14 +8,14 @@
 			foreach (var radioItem in i.GetLoop("Options"))
 			{
 				var isChecked = i.GetBoolean("Option.DefaultSelected") ? "checked='checked'" : "";
-				var radioId = i.GetString("Field.SystemName") + radioItem.GetString("FieldOptions.LoopCounter");
+				var radioId = i.GetString("Field.SystemName") + radioItem.GetString("Options.LoopCounter");
 				<label class="radio-inline">
 					<input type="radio" name='@i.GetString("Field.SystemName")' id='@radioId' value='@radioItem.GetString("Option.Value")' @isChecked />
 					@radioItem.GetString("Option.Text")
 				</label>
 			}
             break;
-		 case "Select":
+		case "Select":
 			<select name="@i.GetValue("Field.SystemName")" class="form-control">
 				@foreach (var option in i.GetLoop("Options"))
 				{
