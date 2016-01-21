@@ -7,7 +7,7 @@
             <h5>@i.GetString("Field.Name")</h5>
 			foreach (var radioItem in i.GetLoop("Options"))
 			{
-				var isChecked = i.GetBoolean("Option.DefaultSelected") ? "checked='checked'" : "";
+				var isChecked = radioItem.GetBoolean("Option.DefaultSelected") ? "checked='checked'" : "";
 				var radioId = i.GetString("Field.SystemName") + radioItem.GetString("Options.LoopCounter");
 				<label class="radio-inline">
 					<input type="radio" name='@i.GetString("Field.SystemName")' id='@radioId' value='@radioItem.GetString("Option.Value")' @isChecked />
